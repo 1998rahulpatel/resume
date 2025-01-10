@@ -5,24 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rahul Kumar Patel - Resume</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
-        /* Add custom animation for the button */
-        .animate-bounce-on-hover:hover {
-            transform: scale(1.1);
-        }
-
-        .animate-bounce-on-hover {
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
+        /* Add other styles here */
     </style>
 </head>
 <body class="bg-gray-100 text-gray-900 font-sans">
 
+    <!-- Icons at original place (visible only on larger screens) -->
+    <div class="hidden sm:flex absolute top-4 right-4 space-x-6 sm:space-x-4 md:space-x-6">
+        <!-- GitHub -->
+        <a href="https://github.com/1998rahulpatel" target="_blank" class="footer-icon text-gray-300 text-xl hover:text-gray-100">
+            <i class="fab fa-github"></i>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/in/1998rahulpatel" target="_blank" class="footer-icon text-gray-300 text-xl hover:text-gray-100">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <!-- WhatsApp -->
+        <a href="https://wa.me/7770944694" target="_blank" class="footer-icon text-gray-300 text-xl hover:text-gray-100">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
     <!-- Header Section -->
-    <header class="bg-gray-800 text-white py-8 text-center">
-        <h1 class="text-4xl font-bold">Rahul Kumar Patel</h1>
-        <p class="text-lg mt-2">Dynamic Software Engineer with 4 years of experience in developing scalable solutions, creating responsive web interfaces, and integrating APIs.</p>
-        <div class="mt-4">
+    <header class="bg-gray-800 text-white py-8 text-center animate-fade-up">
+        <h1 class="text-4xl font-bold gradient-animated sm:text-3xl md:text-4xl">Rahul Kumar Patel</h1>
+        <p class="text-lg mt-2 sm:text-base md:text-lg">Dynamic Software Engineer with 4 years of experience in developing scalable solutions, creating responsive web interfaces, and integrating APIs.</p>
+        <div class="mt-4 text-sm sm:text-xs md:text-sm">
             <a href="mailto:rahulpatel.ji@outlook.com" class="no-underline hover:text-yellow-400 transition-colors">rahulpatel.ji@outlook.com</a> |
             <a href="tel:+917770944694" class="no-underline hover:text-yellow-400 transition-colors">+917770944694</a> |
             <a href="https://www.google.com/maps?q=Pune,+India" target="_blank" class="no-underline hover:text-yellow-400 transition-colors">Pune, India</a>
@@ -30,13 +40,13 @@
     </header>
 
     <!-- Main Content -->
-    <main class="container mx-auto p-8">
+    <main class="container mx-auto p-8 sm:p-6 md:p-8">
 
         <!-- Professional Experience -->
         <section class="mb-8">
-            <h2 class="text-2xl font-semibold text-blue-600 border-b-2 border-gray-300 pb-2 mb-4">Professional Experience</h2>
+            <h2 class="text-2xl font-semibold text-blue-600 border-b-2 border-gray-300 pb-2 mb-4 heading-effect sm:text-xl md:text-2xl">Professional Experience</h2>
 
-            <div class="mb-6">
+            <div class="mb-6 card-hover-effect bg-white shadow-lg rounded-lg p-4">
                 <h3 class="text-xl font-bold">eGain Communication Pvt. Ltd.</h3>
                 <p class="text-gray-700 italic">Software Engineer 1 | August 2022 - Present</p>
                 <ul class="list-disc pl-5 mt-2">
@@ -48,7 +58,7 @@
                 </ul>
             </div>
 
-            <div>
+            <div class="card-hover-effect bg-white shadow-lg rounded-lg p-4">
                 <h3 class="text-xl font-bold">Cognizant Technology Solutions</h3>
                 <p class="text-gray-700 italic">Programmer Analyst | January 2021 - August 2022</p>
                 <ul class="list-disc pl-5 mt-2">
@@ -63,7 +73,7 @@
 
         <!-- Education -->
         <section class="mb-8">
-            <h2 class="text-2xl font-semibold text-blue-600 border-b-2 border-gray-300 pb-2 mb-4">Education</h2>
+            <h2 class="text-2xl font-semibold text-blue-600 border-b-2 border-gray-300 pb-2 mb-4 heading-effect sm:text-xl md:text-2xl">Education</h2>
             <p class="font-bold">Gyan Ganga College of Technology</p>
             <p class="text-gray-700">Bachelor of Engineering (CS) | August 2016 - August 2020</p>
             <p><strong>GPA:</strong> 8.02</p>
@@ -71,16 +81,16 @@
 
         <!-- Technical Skills -->
         <section class="mb-8">
-            <h2 class="text-2xl font-semibold text-blue-600 border-b-2 border-gray-300 pb-2 mb-4">Technical Skills</h2>
+            <h2 class="text-2xl font-semibold text-blue-600 border-b-2 border-gray-300 pb-2 mb-4 heading-effect sm:text-xl md:text-2xl">Technical Skills</h2>
             <ul class="list-disc pl-5">
-                <li><strong>Languages & Frameworks:</strong> Java, Spring, JavaScript, React.js</li>
-                <li><strong>Technologies & Tools:</strong> AWS, SQL, DynamoDB, GitHub, Postman, Jenkins</li>
+                <li><strong>Languages & Frameworks:</strong> Java, Spring, JavaScript, React.js, Node.js</li>
+                <li><strong>Technologies & Tools:</strong> AWS, SQL, DynamoDB, GitHub, Jira, Jmeter, Postman, Jenkins</li>
             </ul>
         </section>
 
         <!-- Certifications -->
         <section>
-            <h2 class="text-2xl font-semibold text-blue-600 border-b-2 border-gray-300 pb-2 mb-4">Certifications</h2>
+            <h2 class="text-2xl font-semibold text-blue-600 border-b-2 border-gray-300 pb-2 mb-4 heading-effect sm:text-xl md:text-2xl">Certifications</h2>
             <ul class="list-disc pl-5">
                 <li>Build REST API with Spring Boot & Spring Data JPA (Udemy) | April 2022 - May 2022</li>
                 <li>Spring MVC Certification (Udemy) | August 2021 - October 2021</li>
@@ -91,7 +101,7 @@
         <!-- Download Resume Button -->
         <div class="text-center mt-8">
             <a href="https://drive.google.com/uc?export=download&id=1hOj3g_toUFxLlW-6V91kv5x18tnm_HMv" 
-               class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 animate-bounce-on-hover transition-transform">
+               class="bg-blue-600 text-white px-6 py-3 rounded-lg button-hover-effect transition-transform">
                 Download Resume
             </a>
         </div>
@@ -100,8 +110,24 @@
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-4 text-center">
-        <p>&copy; 2025 Rahul Kumar Patel. All Rights Reserved.</p>
-    </footer>
+    <p class="mb-4">&copy; 2025 Rahul Kumar Patel. All Rights Reserved.</p>
+
+    <!-- Icons for mobile, visible only in footer -->
+    <div class="sm:hidden flex justify-center space-x-6 sm:space-x-4 md:space-x-6 mt-4">
+        <!-- GitHub -->
+        <a href="https://github.com/1998rahulpatel" target="_blank" class="footer-icon text-gray-300 text-xl hover:text-gray-100">
+            <i class="fab fa-github"></i>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/in/1998rahulpatel" target="_blank" class="footer-icon text-gray-300 text-xl hover:text-gray-100">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <!-- WhatsApp -->
+        <a href="https://wa.me/7770944694" target="_blank" class="footer-icon text-gray-300 text-xl hover:text-gray-100">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+</footer>
 
 </body>
 </html>
