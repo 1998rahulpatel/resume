@@ -7,7 +7,108 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
-        /* Add other styles here */
+        /* Smooth fade-in effect for the header */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-up {
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        /* Background gradient animation */
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .gradient-animated {
+            background: linear-gradient(90deg, #4f46e5, #06b6d4, #22c55e);
+            background-size: 200% 200%;
+            animation: gradientMove 6s ease infinite;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Button hover effects */
+        .button-hover-effect {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .button-hover-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 300%;
+            height: 100%;
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+            transform: skewX(-30deg);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .button-hover-effect:hover::before {
+            left: -50%;
+        }
+
+        .button-hover-effect:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .button-hover-effect {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Section heading animation */
+        .heading-effect {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .heading-effect::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #4f46e5;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .heading-effect:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Subtle card hover effect */
+        .card-hover-effect {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-900 font-sans">
@@ -31,7 +132,7 @@
     <!-- Header Section -->
     <header class="bg-gray-800 text-white py-8 text-center animate-fade-up">
         <h1 class="text-4xl font-bold gradient-animated sm:text-3xl md:text-4xl">Rahul Kumar Patel</h1>
-        <p class="text-lg mt-2 sm:text-base md:text-lg">Dynamic Software Engineer with 4 years of experience in developing scalable solutions, creating responsive web interfaces, and integrating APIs.</p>
+        <p class="text-lg mt-2 px-2 sm:text-base md:text-lg">Dynamic Software Engineer with 4 years of experience in developing scalable solutions, creating responsive web interfaces, and integrating APIs.</p>
         <div class="mt-4 text-sm sm:text-xs md:text-sm">
             <a href="mailto:rahulpatel.ji@outlook.com" class="no-underline hover:text-yellow-400 transition-colors">rahulpatel.ji@outlook.com</a> |
             <a href="tel:+917770944694" class="no-underline hover:text-yellow-400 transition-colors">+917770944694</a> |
