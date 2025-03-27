@@ -49,6 +49,7 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            transition: all 0.3s ease;
         }
 
         .button-hover-effect::before {
@@ -73,26 +74,22 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .button-hover-effect {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
         /* Section heading animation */
         .heading-effect {
             position: relative;
-            overflow: hidden;
             display: inline-block;
         }
 
         .heading-effect::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -2px;
             left: 0;
             width: 100%;
-            height: 2px;
-            background-color: #4f46e5;
+            height: 3px;
+            background: linear-gradient(90deg, #4f46e5, #06b6d4);
             transform: scaleX(0);
+            transform-origin: left;
             transition: transform 0.3s ease-in-out;
         }
 
@@ -100,133 +97,274 @@
             transform: scaleX(1);
         }
 
-        /* Subtle card hover effect */
+        /* Card hover effect */
         .card-hover-effect {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
         }
 
         .card-hover-effect:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-left-color: #4f46e5;
+        }
+
+        /* Timeline effect for experience */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #4f46e5, #06b6d4);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #4f46e5;
+            border: 3px solid #e5e7eb;
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-900 font-sans">
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
     <!-- Icons at original place (visible only on larger screens) -->
-    <div class="hidden sm:flex absolute top-4 right-4 space-x-6 sm:space-x-4 md:space-x-6">
+    <div class="hidden sm:flex fixed top-4 right-4 space-x-6 z-10">
         <!-- GitHub -->
-        <a href="https://github.com/1998rahulpatel" target="_blank" class="footer-icon text-gray-300 text-xl hover:text-gray-100">
+        <a href="https://github.com/1998rahulpatel" target="_blank" class="text-gray-300 hover:text-gray-950 transition-colors text-xl">
             <i class="fab fa-github"></i>
         </a>
         <!-- LinkedIn -->
-        <a href="https://linkedin.com/in/1998rahulpatel" target="_blank" class="footer-icon text-gray-300 text-xl hover:text-gray-100">
+        <a href="https://linkedin.com/in/1998rahulpatel" target="_blank" class="text-gray-300 hover:text-blue-400 transition-colors text-xl">
             <i class="fab fa-linkedin"></i>
         </a>
         <!-- WhatsApp -->
-        <a href="https://wa.me/7770944694" target="_blank" class="footer-icon text-gray-300 text-xl hover:text-gray-100">
+        <a href="https://wa.me/7770944694" target="_blank" class="text-gray-300 hover:text-green-300 transition-colors text-xl">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
 
     <!-- Header Section -->
-    <header class="bg-gray-800 text-white py-8 text-center animate-fade-up">
-        <h1 class="text-4xl font-bold gradient-animated sm:text-3xl md:text-4xl">Rahul Kumar Patel</h1>
-        <p class="text-lg mt-2 px-4 sm:text-base md:text-lg">Dynamic Software Engineer with 4 years of experience in developing scalable solutions, creating responsive web interfaces, and integrating APIs. Committed to high quality software development.</p>
-        <div class="mt-4 text-sm sm:text-xs md:text-sm">
-            <a href="mailto:rahulpatel.ji@outlook.com" class="no-underline hover:text-yellow-400 transition-colors">rahulpatel.ji@outlook.com</a> |
-            <a href="tel:+917770944694" class="no-underline hover:text-yellow-400 transition-colors">+917770944694</a> |
-            <a href="https://www.google.com/maps?q=Pune,+India" target="_blank" class="no-underline hover:text-yellow-400 transition-colors">Pune, India</a>
+    <header class="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-12 text-center animate-fade-up">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold mb-2 gradient-animated sm:text-3xl md:text-4xl">Rahul Kumar Patel</h1>
+            <div class="flex flex-wrap justify-center gap-4 text-sm mb-4">
+                <a href="mailto:rahulpatel.ji@outlook.com" class="flex items-center hover:text-blue-200 transition-colors">
+                    <i class="fas fa-envelope mr-2"></i> rahulpatel.ji@outlook.com
+                </a>
+                <a href="tel:+917770944694" class="flex items-center hover:text-blue-200 transition-colors">
+                    <i class="fas fa-phone mr-2"></i> +917770944694
+                </a>
+                <a href="https://www.google.com/maps?q=Pune,+India" target="_blank" class="flex items-center hover:text-blue-200 transition-colors">
+                    <i class="fas fa-map-marker-alt mr-2"></i> Pune, India
+                </a>
+            </div>
+            <p class="text-lg max-w-3xl mx-auto px-4 sm:text-base md:text-lg">
+                Dynamic Software Engineer with 4 years of experience in developing scalable solutions, creating responsive web interfaces, and integrating APIs. Committed to high quality software development.
+            </p>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="px-4 sm:px-6 md:px-8">
+    <main class="container mx-auto px-4 py-8 max-w-5xl">
 
         <!-- Professional Experience -->
-        <section class="mb-8">
-            <h2 class="text-2xl font-semibold text-blue-600 border-b-2 border-gray-300 pb-2 mb-4 heading-effect sm:text-xl md:text-2xl">Professional Experience</h2>
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 heading-effect sm:text-2xl">Professional Experience</h2>
 
-            <div class="mb-6 card-hover-effect bg-white shadow-lg rounded-lg p-4">
-                <h3 class="text-xl font-bold">eGain Communication Pvt. Ltd.</h3>
-                <p class="text-gray-700 italic">Software Engineer 1 | August 2022 - February</p>
-                <ul class="list-disc pl-5 mt-2">
-                    <li>Designed and implemented responsive user interfaces using React.js, ensuring a seamless user experience across various devices.</li>
-                    <li>Developed and maintained RESTful APIs for efficient communication between frontend and backend systems using Java and JavaScript.</li>
-                    <li>Managed databases, including SQL and DynamoDB, with a focus on data integrity, scalability, and performance optimization.</li>
-                    <li>Deployed, executed, and optimized AWS Lambda functions using Java and Node.js.</li>
-                    <li>Resolved software defects and customer-reported issues by leveraging strong troubleshooting skills.</li>
+            <div class="mb-8 card-hover-effect bg-white rounded-xl shadow-md overflow-hidden p-6 timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                    <h3 class="text-xl font-bold text-gray-800">eGain Communication Pvt. Ltd.</h3>
+                    <p class="text-gray-600 font-medium">August 2022 - February 2025</p>
+                </div>
+                <p class="text-blue-600 font-semibold mb-4">Software Engineer 1</p>
+                <ul class="space-y-3">
+                    <li class="flex">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <span><strong>User Interface Development:</strong> Implemented responsive user interfaces using React.js, ensuring a seamless user experience across various devices and screen sizes, optimizing front-end performance and accessibility.</span>
+                    </li>
+                    <li class="flex">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <span><strong>API Development:</strong> Developed and maintained RESTful APIs using Java and JavaScript, enabling efficient communication between the front-end and back-end systems. Applied best practices to ensure high availability and scalability of the APIs.</span>
+                    </li>
+                    <li class="flex">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <span><strong>Database Management:</strong> Managed databases like SQL Server and DynamoDB, focusing on data integrity, scalability, and performance optimization. Collaborated with the team to implement efficient database queries, migrations, and maintenance.</span>
+                    </li>
+                    <li class="flex">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <span><strong>Unit Testing:</strong> Conducted comprehensive unit testing using JUnit, ensuring application reliability, stability, and performance. Applied various testing methodologies to validate the functionality of APIs and user interfaces.</span>
+                    </li>
+                    <li class="flex">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <span><strong>AWS Lambda & Cloud Deployment:</strong> Deployed, executed, and optimized AWS Lambda functions using Java and Node.js, ensuring efficient debugging and high operational performance. Utilized AWS services to build and maintain scalable, cloud-based applications.</span>
+                    </li>
+                    <li class="flex">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <span><strong>Troubleshooting & Customer Solutions:</strong> Actively resolved software defects and customer-reported issues by leveraging strong troubleshooting skills. Provided timely, customer-focused solutions, ensuring minimal downtime and a smooth user experience.</span>
+                    </li>
                 </ul>
             </div>
 
-            <div class="card-hover-effect bg-white shadow-lg rounded-lg p-4">
-                <h3 class="text-xl font-bold">Cognizant Technology Solutions</h3>
-                <p class="text-gray-700 italic">Programmer Analyst | January 2021 - August 2022</p>
-                <ul class="list-disc pl-5 mt-2">
-                    <li>Migrated all AT&T catalog products and offers to CommerceTools, enhancing efficiency and scalability.</li>
-                    <li>Configured DirecTV products and offers to meet client-specific requirements for the new DirecTV UI.</li>
-                    <li>Collaborated on Jira user stories, translating requirements into efficient and effective code implementations.</li>
-                    <li>Contributed as a backend developer using Spring Boot and Node.js to build robust, scalable systems.</li>
-                    <li>Utilized Postman for API testing and implemented test scripts to validate functionality.</li>
+            <div class="card-hover-effect bg-white rounded-xl shadow-md overflow-hidden p-6 timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                    <h3 class="text-xl font-bold text-gray-800">Cognizant Technology Solutions</h3>
+                    <p class="text-gray-600 font-medium">January 2021 - July 2022</p>
+                </div>
+                <p class="text-blue-600 font-semibold mb-4">Programmer Analyst</p>
+                <ul class="space-y-3">
+                    <li class="flex">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <span><strong>API Development:</strong> Developed and maintained RESTful APIs using Spring Boot and Node.js, ensuring scalability and high performance.</span>
+                    </li>
+                    <li class="flex">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <span><strong>User Interface Development:</strong> Configured and customized the new DirecTV UI to meet client requirements, ensuring a seamless and responsive experience.</span>
+                    </li>
+                    <li class="flex">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <span><strong>Database Management:</strong> Supported database migration of AT&T catalog products to Commerce Tools, optimizing query performance and ensuring data integrity.</span>
+                    </li>
+                    <li class="flex">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <span><strong>Unit Testing:</strong> Used Postman for API testing and implemented test scripts to validate backend functionality. Also, wrote JUnit test cases to ensure code reliability and maintainability.</span>
+                    </li>
+                    <li class="flex">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <span><strong>Cloud Deployment & Integration:</strong> Assisted in migrating AT&T catalog products to Commerce Tools, leveraging cloud solutions for scalability.</span>
+                    </li>
                 </ul>
             </div>
         </section>
 
         <!-- Education -->
-        <section class="mb-8">
-            <h2 class="text-2xl font-semibold text-blue-600 border-b-2 border-gray-300 pb-2 mb-4 heading-effect sm:text-xl md:text-2xl">Education</h2>
-            <p class="font-bold">Gyan Ganga College of Technology</p>
-            <p class="text-gray-700">Bachelor of Engineering (CS) | August 2016 - August 2020</p>
-            <p><strong>CGPA:</strong> 8.02</p>
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 heading-effect sm:text-2xl">Education</h2>
+            <div class="card-hover-effect bg-white rounded-xl shadow-md overflow-hidden p-6">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+                    <h3 class="text-xl font-bold text-gray-800">Gyan Ganga College of Technology</h3>
+                    <p class="text-gray-600 font-medium">August 2016 - August 2020</p>
+                </div>
+                <p class="text-blue-600 font-semibold">Bachelor of Engineering (Computer Science)</p>
+                <p class="mt-2"><strong>CGPA:</strong> 8.02</p>
+            </div>
         </section>
 
         <!-- Technical Skills -->
-        <section class="mb-8">
-            <h2 class="text-2xl font-semibold text-blue-600 border-b-2 border-gray-300 pb-2 mb-4 heading-effect sm:text-xl md:text-2xl">Technical Skills</h2>
-            <ul class="list-disc pl-5">
-                <li><strong>Languages & Frameworks:</strong> Java, Spring, JavaScript, React.js, Node.js</li>
-                <li><strong>Technologies & Tools:</strong> AWS, SQL Server, DynamoDB, GitHub, Jira, Jmeter, Postman, Jenkins</li>
-            </ul>
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 heading-effect sm:text-2xl">Technical Skills</h2>
+            <div class="card-hover-effect bg-white rounded-xl shadow-md overflow-hidden p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-700 mb-2">Languages & Frameworks</h3>
+                        <ul class="space-y-1">
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                                <span>Java, Spring, JavaScript</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                                <span>React.js, Node.js, SQL</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-700 mb-2">Technologies & Tools</h3>
+                        <ul class="space-y-1">
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                                <span>AWS, Microsoft SQL Server</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                                <span>GitHub, Jira, JMeter, Jenkins</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                                <span>Postman, Terraform</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Certifications -->
-        <section>
-            <h2 class="text-2xl font-semibold text-blue-600 border-b-2 border-gray-300 pb-2 mb-4 heading-effect sm:text-xl md:text-2xl">Certifications</h2>
-            <ul class="list-disc pl-5">
-                <li>Build REST API with Spring Boot & Spring Data JPA (Udemy) | April 2022 - May 2022</li>
-                <li>Spring MVC Certification (Udemy) | August 2021 - October 2021</li>
-                <li>Certified Advanced Java Programmer | November 2018 - December 2018</li>
-            </ul>
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 heading-effect sm:text-2xl">Certifications</h2>
+            <div class="card-hover-effect bg-white rounded-xl shadow-md overflow-hidden p-6">
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-blue-500 mr-3 mt-1"><i class="fas fa-certificate"></i></span>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Build REST API with Spring Boot & Spring Data JPA</h3>
+                            <p class="text-gray-600">April 2022 - May 2022</p>
+                            <p class="text-gray-700 mt-1">Completed Spring Boot and Spring Data JPA Udemy Course.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-blue-500 mr-3 mt-1"><i class="fas fa-certificate"></i></span>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Spring MVC Udemy Certification</h3>
+                            <p class="text-gray-600">August 2021 - October 2021</p>
+                            <p class="text-gray-700 mt-1">Completed Spring MVC Udemy Course.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-blue-500 mr-3 mt-1"><i class="fas fa-certificate"></i></span>
+                        <div>
+                            <h3 class="font-bold text-gray-800">Certified Advanced Java Programmer</h3>
+                            <p class="text-gray-600">November 2018 - December 2018</p>
+                            <p class="text-gray-700 mt-1">Completed Advanced Java training during college.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </section>
 
         <!-- Download Resume Button -->
         <div class="text-center mt-8">
             <a href="https://drive.google.com/uc?export=download&id=15qp3rI6CoplqcgHcHRgtg_-O6HC--EGA" 
-               class="bg-blue-600 text-white px-6 py-3 rounded-lg button-hover-effect transition-transform">
-                Download Resume
+               class="inline-flex items-center bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-3 rounded-lg button-hover-effect font-semibold">
+                <i class="fas fa-download mr-2"></i> Download Resume
             </a>
         </div>
 
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-4 text-center">
-        <p class="mb-4">&copy; 2025 Rahul Kumar Patel. All Rights Reserved.</p>
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4">&copy; 2025 Rahul Kumar Patel. All Rights Reserved.</p>
 
-        <!-- Icons for mobile, visible only in footer -->
-        <div class="sm:hidden flex justify-center space-x-6 sm:space-x-4 md:space-x-6 mt-4">
-            <!-- GitHub -->
-            <a href="https://github.com/1998rahulpatel" target="_blank" class="footer-icon text-gray-300 text-xl hover:text-gray-100">
-                <i class="fab fa-github"></i>
-            </a>
-            <!-- LinkedIn -->
-            <a href="https://linkedin.com/in/1998rahulpatel" target="_blank" class="footer-icon text-gray-300 text-xl hover:text-gray-100">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <!-- WhatsApp -->
-            <a href="https://wa.me/7770944694" target="_blank" class="footer-icon text-gray-300 text-xl hover:text-gray-100">
-                <i class="fab fa-whatsapp"></i>
-            </a>
+            <!-- Icons for mobile, visible only in footer -->
+            <div class="sm:hidden flex justify-center space-x-6 mt-4">
+                <!-- GitHub -->
+                <a href="https://github.com/1998rahulpatel" target="_blank" class="text-gray-300 hover:text-white transition-colors text-xl">
+                    <i class="fab fa-github"></i>
+                </a>
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/1998rahulpatel" target="_blank" class="text-gray-300 hover:text-blue-400 transition-colors text-xl">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <!-- WhatsApp -->
+                <a href="https://wa.me/7770944694" target="_blank" class="text-gray-300 hover:text-green-400 transition-colors text-xl">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
         </div>
     </footer>
 
